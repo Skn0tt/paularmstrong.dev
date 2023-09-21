@@ -40,7 +40,7 @@ export default async (req: Request, context: Context) => {
 
 	const rewriter = new HTMLRewriter()
 		// .on('html', new HtmlHandler(theme, isAuto))
-		.on('script', nonceWriter);
+		// .on('script', nonceWriter);
 	res.headers.set(
 		'report-to',
 		JSON.stringify({
