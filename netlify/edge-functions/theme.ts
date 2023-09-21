@@ -51,6 +51,8 @@ export default async (req: Request, context: Context) => {
 	);
 	res.headers.set('content-security-policy', getCsp(nonce));
 
+	return res
+
 	return rewriter.transform(res);
 };
 
