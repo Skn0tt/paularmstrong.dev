@@ -38,9 +38,7 @@ export default async (req: Request, context: Context) => {
 	const nonce = generateRandomNonce();
 	const nonceWriter = new NonceHandler(nonce);
 
-	const rewriter = new HTMLRewriter()
-		// .on('html', new HtmlHandler(theme, isAuto))
-		// .on('script', nonceWriter);
+	const rewriter = new HTMLRewriter().on('html', new HtmlHandler(theme, isAuto)).on('script', nonceWriter);
 	res.headers.set(
 		'report-to',
 		JSON.stringify({
