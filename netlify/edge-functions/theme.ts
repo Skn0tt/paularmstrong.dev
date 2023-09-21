@@ -7,6 +7,11 @@ import { generateRandomNonce } from 'https://deno.land/x/oauth4webapi@v2.3.0/mod
 
 const COOKIE_NAME = 'dt';
 
+window.onerror = (e) => {
+  e.preventDefault();
+  console.error("We have trapped an uncaught exception:", e);
+};
+
 export default async (req: Request, context: Context) => {
 	if (req.headers.get('user-agent') === 'undici') {
 		console.log(req);
@@ -34,8 +39,6 @@ export default async (req: Request, context: Context) => {
 		theme,
 		ua: req.headers.get('user-agent'),
 	});
-
-	return
 
 	const nonce = generateRandomNonce();
 	const nonceWriter = new NonceHandler(nonce);
