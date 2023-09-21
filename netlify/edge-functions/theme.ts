@@ -1,7 +1,7 @@
 // @ts-ignore
 import type { Context, Config } from 'https://edge.netlify.com/';
 // @ts-ignore
-import { HTMLRewriter, Element } from 'https://ghuc.cc/worker-tools/html-rewriter/index.ts';
+import { HTMLRewriter, Element } from 'https://ghuc.cc/skn0tt/html-rewriter/index.ts';
 // @ts-ignore
 import { generateRandomNonce } from 'https://deno.land/x/oauth4webapi@v2.3.0/mod.ts';
 
@@ -50,8 +50,6 @@ export default async (req: Request, context: Context) => {
 		}),
 	);
 	res.headers.set('content-security-policy', getCsp(nonce));
-
-	return res
 
 	return rewriter.transform(res);
 };
