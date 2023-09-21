@@ -35,6 +35,8 @@ export default async (req: Request, context: Context) => {
 		ua: req.headers.get('user-agent'),
 	});
 
+	return
+
 	const nonce = generateRandomNonce();
 	const nonceWriter = new NonceHandler(nonce);
 
